@@ -1,6 +1,7 @@
 package src;
 
 import javax.swing.*;
+import java.util.Scanner;
 
 public class Contador {
     static int número = 0;
