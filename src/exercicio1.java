@@ -2,7 +2,7 @@ package src;
 
 import java.util.Scanner;
 
-public class notas {
+public class exercicio1 {
     // Faça um algoritmo que receba três notas e seus respectivos pesos, calcule e mostre a média
     //ponderada dessas notas
 
@@ -18,9 +18,9 @@ public class notas {
     public int peso;
     public static int mediaPonderada;
     static Scanner scanner = new Scanner(System.in);
-    static notas nota1 = new notas();
-    static notas nota2 = new notas();
-    static notas nota3 = new notas();
+    static exercicio1 nota1 = new exercicio1();
+    static exercicio1 nota2 = new exercicio1();
+    static exercicio1 nota3 = new exercicio1();
 
     public static void main(String[] args) {
         System.out.println("Insira a primeira nota");
