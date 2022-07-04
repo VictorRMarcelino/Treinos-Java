@@ -21,7 +21,23 @@ public class calcularMedia {
     public static void materia(){
         System.out.println("Insira a matéria desejada");
         materia = sc.nextLine();
-        adicionaNotaPeso4();
+        desejaAdicionarNotaPeso4();
+    }
+
+    public static void desejaAdicionarNotaPeso4(){
+        System.out.println("Deseja inserir uma nota peso 4? (sim/nao)");
+        escolha = sc.nextLine();
+        switch (escolha){
+            case "sim" -> {
+                adicionaNotaPeso4();
+            }
+            case "nao" -> {
+                desejaAdicionarNotaPeso6();
+            }
+            default -> {
+                adicionarNovaNotaPeso4();
+            }
+        }
     }
 
 
@@ -40,7 +56,23 @@ public class calcularMedia {
                 adicionaNotaPeso4();
             }
             case "nao" -> {
+                desejaAdicionarNotaPeso6();
+            }
+            default -> {
+                adicionarNovaNotaPeso4();
+            }
+        }
+    }
+
+    public static void desejaAdicionarNotaPeso6(){
+        System.out.println("Deseja inserir uma nota peso 6? (sim/nao)");
+        escolha = sc.nextLine();
+        switch (escolha){
+            case "sim" -> {
                 adicionaNotaPeso6();
+            }
+            case "nao" -> {
+                calcularNotasPeso4();
             }
             default -> {
                 adicionarNovaNotaPeso4();
@@ -73,26 +105,36 @@ public class calcularMedia {
 
     public static void calcularNotasPeso4(){
         double sum = 0;
-        for(int i = 0; i < listaNotasPeso4.size(); i++){
-            sum += listaNotasPeso4.get(i);
+        if(listaNotasPeso4.size() > 0) {
+            for (int i = 0; i < listaNotasPeso4.size(); i++) {
+                sum += listaNotasPeso4.get(i);
+            }
+            finalPeso4 = (sum / listaNotasPeso4.size()) * 0.4;
+            calcularNotasPeso6();
+        }else{
+            finalPeso4 = 0;
+            calcularNotasPeso6();
         }
-        finalPeso4 = (sum/listaNotasPeso4.size()) * 0.4;
-        calcularNotasPeso6();
     }
 
     public static void calcularNotasPeso6(){
         double sum = 0;
-        for(int i = 0; i < listaNotasPeso6.size(); i++){
-            sum += listaNotasPeso6.get(i);
+        if(listaNotasPeso6.size() > 0) {
+            for (int i = 0; i < listaNotasPeso6.size(); i++) {
+                sum += listaNotasPeso6.get(i);
+            }
+            finalPeso6 = sum / listaNotasPeso6.size() * 0.6;
+            mediaFinal();
+        }else{
+            finalPeso6 = 0;
+            mediaFinal();
         }
-        finalPeso6 = sum/listaNotasPeso6.size() * 0.6;
-        mediaFinal();
     }
     public static void mediaFinal(){
-        double notaMediaFinal = finalPeso4 + finalPeso6;
-        System.out.println("");
-        System.out.println("peso 4: " + finalPeso4);
-        System.out.println("peso 6: " + finalPeso6);
-        System.out.println("Sua média em " + materia + " é: " + notaMediaFinal);
+            double notaMediaFinal = finalPeso4 + finalPeso6;
+            System.out.println("");
+            System.out.println("peso 4: " + finalPeso4);
+            System.out.println("peso 6: " + finalPeso6);
+            System.out.println("Sua média em " + materia + " é: " + notaMediaFinal);
     }
 }
